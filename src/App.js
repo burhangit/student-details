@@ -11,9 +11,12 @@ const App = () => {
   const [dob, setDOB] = useState("");
   const [address, setAddress] = useState("");
 
+
+
   const submitForm = (e) => {
     e.preventDefault(); // this will disable page reload after form submission
-
+  
+      
     setStudents([
       ...students, // spread old students objects and add with new object
       {
@@ -25,9 +28,19 @@ const App = () => {
         address: address,
       },
     ]);
+   
   };
 
-  console.log(students);
+  const clearInputs = ()=>{
+    setName("")
+    setFatherName("")
+    setAge("")
+    setAddress("")
+    setDOB("")
+    setRollNo("")
+  }
+
+
 
   return (
     <div className="App">
@@ -38,21 +51,21 @@ const App = () => {
         <div className="student__add">
           <form onSubmit={submitForm}>
             <label>Name:</label>
-            <input
+            <input required
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="enter name"
             />
             <label>Age:</label>
-            <input
+            <input required
               type="number"
               value={age}
               onChange={(e) => setAge(e.target.value)}
               placeholder="enter Age"
             />
             <label>Father's Name:</label>
-            <input
+            <input required
               type="text"
               value={fatherName}
               onChange={(e) => setFatherName(e.target.value)}
@@ -81,11 +94,20 @@ const App = () => {
               onChange={(e) => setAddress(e.target.value)}
               placeholder="enter address"
             />
-            <div className="buttons">
-              <button className="submit">Submit</button>
-              <button className="clear">Clear</button>
+             <div className="buttons">
+              <button className="submit" type="submit">Submit</button>
+              <button className="clear" onClick={clearInputs}>Clear</button>
             </div>
           </form>
+         
+
+        </div>
+        <div className="student_details">
+          {
+            students?.map((item,index)=>(
+              <h1>{item.name}:{item.age}</h1>
+            ))
+          }
         </div>
       </div>
     </div>
