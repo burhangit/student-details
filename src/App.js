@@ -28,6 +28,8 @@ const App = () => {
         address: address,
       },
     ]);
+
+
    
   };
 
@@ -40,13 +42,21 @@ const App = () => {
     setRollNo("")
   }
 
+  const delRow = (index)=>{
+    let newStudents= students.filter((item,key)=> key != index) 
+    setStudents(newStudents)
+}
+
+
+
+
 
 
   return (
     <div className="App">
       <div className="student">
-        <header>
-          <h1>Add Student</h1>
+        <header id="heading_style">
+          <h1>Add Student</h1><br />
         </header>
         <div className="student__add">
           <form onSubmit={submitForm}>
@@ -64,7 +74,8 @@ const App = () => {
               onChange={(e) => setAge(e.target.value)}
               placeholder="enter Age"
             />
-            <label>Father's Name:</label>
+            
+            <label>F.Name:</label>
             <input required
               type="text"
               value={fatherName}
@@ -103,14 +114,45 @@ const App = () => {
 
         </div>
         <div className="student_details">
-          {
-            students?.map((item,index)=>(
-              <h1>{item.name}:{item.age}</h1>
-            ))
-          }
+              <table>
+
+              {
+                students.length>0?(
+                  <tr className="table_heading">
+                  <th>Name</th>
+                  <th>Age</th>
+                  <th>Father's Name</th>
+                  <th>Roll No</th>
+                  <th>DOB</th>
+                  <th>Address</th>
+                  <th>Action</th>
+                </tr>
+                ):null
+              }
+               
+                
+
+
+
+
+              {students.map((item,index)=>(
+                <tr className="table_data">
+                  <th>{item.name}</th>
+                  <th>{item.age}</th>
+                  <th>{item.fatherName}</th>
+                  <th>{item.rollNo}</th>
+                  <th>{item.dob}</th>
+                  <th>{item.address}</th>
+                  <th><button onClick={()=>delRow(index)} style={{cursor:"pointer"}}>delete</button></th>
+                </tr>
+              ))
+              }
+              </table>
+            
         </div>
       </div>
     </div>
+    
   );
 };
 export default App;

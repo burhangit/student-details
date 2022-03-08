@@ -1,1 +1,95 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+    background-color:#d4e0d6;
+}
 
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  .table_data:hover{
+    background-color:darkgray;
+  }
+
+  .table_heading{
+      background-color: black;
+      color:white;
+  }
+
+  .App{
+    display: flex;
+    justify-content: center;
+      
+  }
+
+  .student{
+      box-shadow:5px 5px 5px 15px silver;
+      background-color: #e6e6e6;
+      border-radius: 10px;
+      padding:30px;
+
+  }
+
+  #heading_style{
+      text-align: center;
+      margin-top: 20px;
+  }
+
+  label{
+      font-size: 16px;
+      font-weight: bold;
+  }
+
+  input{
+      background-color:silver;
+      outline: none;
+      border-style: none;
+      width: 200px;
+      height: 30px;
+      margin:10px;
+      text-align: center;
+  }
+
+  .buttons{
+      display: flex;
+      justify-content: center;
+      margin:20px;
+      
+  }
+
+  .submit{
+      margin: 20px;
+      width: 200px;
+      height: 30px;
+      background-color: silver;
+      outline: none;
+      border: none;
+      border-top-left-radius: 10px;
+      font-weight: bold;
+      font-size: 14px;
+  }
+
+  .clear{
+      width:200px;
+      height: 30px;
+      margin: 20px;
+      background-color: silver;
+      outline: none;
+      border: none;
+      border-top-left-radius: 10px;
+      font-weight: bold;
+      font-size: 14px;
+  }
+  
